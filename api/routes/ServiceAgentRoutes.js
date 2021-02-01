@@ -2,7 +2,7 @@ module.exports = function(app) {
     const { Auth } = require("../middleware/auth");
     const { ServiceAgent } = require("../middleware/serviceAgent");
 
-    const ServiceAgentController = require("../controllers/ServiceAgentnController")
+    const ServiceAgentController = require("../controllers/ServiceAgentController")
 
     app.post("/create_service_tag", [Auth, ServiceAgent], ServiceAgentController.createServiceTag);
     // app.get("/services_tags", [Auth, Beautician], BeauticianController.getAllServiceTags);
