@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
 
 require('./AuthRoutes')(router);
 // require('./AdminRoutes')(router);
-// require('./ServiceAgentRoutes')(router);
-// require('./CustomerRoutes')(router);
+require('./ServiceAgentRoutes')(router);
+require('./CustomerRoutes')(router);
 
 module.exports.router = router;
