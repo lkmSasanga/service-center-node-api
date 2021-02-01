@@ -1,7 +1,8 @@
 const UserRole = {
-    ADMIN: 'ADMIN',
-    CUSTOMER: 'CUSTOMER',
-    BEAUTICIAN: 'BEAUTICIAN'
+    SUPER_ADMIN: 'SUPER_ADMIN',
+    SERVICE_AGENT: 'SERVICE_AGENT',
+    CUSTOMER: 'CUSTOMER'
 }
+
 
 module.exports = Object.freeze(UserRole);
