@@ -12,7 +12,7 @@ let VehicleModelSchema = new Schema({
     }
 });
 
-const VehicleModel = mongoose.model('ServiceTag', VehicleModelSchema);
-module.exports = { VehicleModel }
+const Vehicle = mongoose.model('ServiceTag', VehicleModelSchema);
+module.exports = { Vehicle }
 
 
