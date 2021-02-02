@@ -4,7 +4,7 @@ module.exports = function(app) {
 
     const ServiceAgentController = require("../controllers/ServiceAgentController")
 
-    app.post("/create_service_tag", [Auth, ServiceAgent], ServiceAgentController.createServiceTag);
+    // app.post("/create_service_tag", [Auth, ServiceAgent], ServiceAgentController.createServiceTag);
     // app.get("/services_tags", [Auth, Beautician], BeauticianController.getAllServiceTags);
     // app.post("/create_service", [Auth, Beautician], BeauticianController.createService);
     // app.get("/services", [Auth, Beautician], BeauticianController.getAllServices);
