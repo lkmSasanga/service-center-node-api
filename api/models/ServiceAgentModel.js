@@ -13,5 +13,5 @@ let ServiceAgentModelSchema = new Schema({
     }
 });
 
-const ServiceAgent = mongoose.model('Beautician', ServiceAgentModelSchema);
+const ServiceAgent = mongoose.model('ServiceAgent', ServiceAgentModelSchema);
 module.exports = { ServiceAgent }

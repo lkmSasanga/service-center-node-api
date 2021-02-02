@@ -28,5 +28,5 @@ let ServiceRecordModelSchema = new Schema({
     }
 });
 
-const ServiceRecord = mongoose.model('Customer', ServiceRecordModelSchema);
+const ServiceRecord = mongoose.model('ServiceRecord', ServiceRecordModelSchema);
 module.exports = { ServiceRecord }
