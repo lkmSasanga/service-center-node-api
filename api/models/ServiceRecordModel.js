@@ -2,9 +2,9 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let ServiceRecordModelSchema = new Schema({
-    user_id: {
+    customer: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'Customer',
         required: [true, 'User field is required!']
     },
     vehicle: {
