@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
 });
 
 require('./AuthRoutes')(router);
-// require('./AdminRoutes')(router);
+require('./SuperAdminRoutes')(router);
 require('./ServiceAgentRoutes')(router);
 require('./CustomerRoutes')(router);
 
