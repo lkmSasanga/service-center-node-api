@@ -1,10 +1,13 @@
 let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
+const VehicleType = require('../enums/VehicleType');
+
 
 let VehicleModelSchema = new Schema({
-    model: {
+    type: {
         type: String,
-        required: [true, 'Model field is required!']
+        enum: VehicleType,
+        default: VehicleType.CAR
     },
     created_date: {
         type: Date,
@@ -12,7 +15,7 @@ let VehicleModelSchema = new Schema({
     }
 });
 
-const Vehicle = mongoose.model('ServiceTag', VehicleModelSchema);
+const Vehicle = mongoose.model('Vehicle', VehicleModelSchema);
 module.exports = { Vehicle }
 
 
