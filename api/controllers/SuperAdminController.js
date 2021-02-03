@@ -63,6 +63,8 @@ exports.getAllServiceCategories = (req, res) => {
 // };
 
 exports.getAllCustomers = (req, res) => {
+    // let collection= req.db.get('users')
+
     User.find(
         // { role: req.params.role },
         function(err, customers) {
@@ -73,13 +75,16 @@ exports.getAllCustomers = (req, res) => {
                 data: err
             });
         }
-        // if (customers.role === UserRole.CUSTOMER) {
-        //
-        // }
+        for (customer in customers) {
+            if (customer.role === UserRole.CUSTOMER) {
+                console.log(customers)
+            }
+        }
+
 
         return res.status(200).json({
             success: true,
-            message: "Received customers!",
+            message: `Received ${req.params.role}!`,
             data: customers
         });
 
