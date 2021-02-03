@@ -21,23 +21,23 @@ exports.createServiceCategory = async (req, res) => {
     });
 };
 
-// exports.getAllServiceTags = (req, res) => {
-//     ServiceTag.find(function(err, serviceTags) {
-//         if (err) {
-//             return res.status(422).json({
-//                 success: false,
-//                 message: "Unable to retrive service tags!",
-//                 data: err
-//             });
-//         }
-//
-//         return res.status(200).json({
-//             success: true,
-//             message: "Received service tags!",
-//             data: serviceTags
-//         });
-//     });
-// };
+exports.getAllServiceCategories = (req, res) => {
+    ServiceCategory.find(function(err, serviceCategories) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Unable to retrive service tags!",
+                data: err
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Received service tags!",
+            data: serviceCategories
+        });
+    });
+};
 
 // exports.createService = async (req, res) => {
 //     await ServiceTag.findById(req.body.service_tag, async function(err, serviceTag) {
