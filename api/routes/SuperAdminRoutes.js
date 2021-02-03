@@ -5,7 +5,11 @@ module.exports = function(app) {
     const SuperAdminController = require("../controllers/SuperAdminController")
 
     app.post("/create_service_category", [Auth, SuperAdmin], SuperAdminController.createServiceCategory);
-    app.get("/services_categories", [Auth, SuperAdmin], SuperAdminController.getAllServiceCategories);
+    app.get("/service_categories", [Auth, SuperAdmin], SuperAdminController.getAllServiceCategories);
+    // app.get("/create_customer", [Auth, SuperAdmin], SuperAdminController.createCustomer);
+    app.get("/customers", [Auth, SuperAdmin], SuperAdminController.getAllCustomers);
+
+
     // app.post("/create_service", [Auth, superAdmin], BeauticianController.createService);
     // app.get("/services", [Auth, superAdmin], BeauticianController.getAllServices);
     // app.get("/service/:id", [Auth], BeauticianController.getServiceById);

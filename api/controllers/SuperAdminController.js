@@ -1,5 +1,8 @@
 // const { ServiceCategory } = require("../models/ServiceCategoryModel");
 const { ServiceCategory } = require("../models/ServiceCategoryModel");
+const { Customer } = require('../models/CustomerModel')
+const { User } = require('../models/UserModel')
+const { UserRole } = require('../models/UserModel')
 
 exports.createServiceCategory = async (req, res) => {
     let newServiceCategory = new ServiceCategory(req.body);
@@ -38,6 +41,64 @@ exports.getAllServiceCategories = (req, res) => {
         });
     });
 };
+
+// exports.createCustomer = async (req, res) => {
+//     let newCustomer = new Customer(req.body);
+//
+//     await newCustomer.save((err, customer) => {
+//         if (err) {
+//             return res.status(422).json({
+//                 success: false,
+//                 message: "Unable to create service tag!",
+//                 data: err
+//             });
+//         } else {
+//             return res.status(200).json({
+//                 success: true,
+//                 message: "New service tag is created!",
+//                 data: customer
+//             });
+//         }
+//     });
+// };
+
+exports.getAllCustomers = (req, res) => {
+    User.find(
+        // { role: req.params.role },
+        function(err, customers) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Unable to retrieve customers!",
+                data: err
+            });
+        }
+        // if (customers.role === UserRole.CUSTOMER) {
+        //
+        // }
+
+        return res.status(200).json({
+            success: true,
+            message: "Received customers!",
+            data: customers
+        });
+
+    });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // exports.createService = async (req, res) => {
 //     await ServiceTag.findById(req.body.service_tag, async function(err, serviceTag) {
