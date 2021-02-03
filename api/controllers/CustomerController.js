@@ -1,6 +1,6 @@
 const UserRole = require("../enums/UserRole");
 const { User } = require("../models/UserModel");
-const { Service } = require("../models/ServiceModel");
+const { Service } = require("../models/ServiceCategoryModel");
 
 // exports.searchServices = (req, res) => {
 //     let searchString = req.body.term;
