@@ -62,11 +62,11 @@ exports.getAllServiceCategories = (req, res) => {
 //     });
 // };
 
-exports.getAllCustomers = (req, res) => {
+exports.getAllCustomers = async (req, res) => {
     // let collection= req.db.get('users')
 
-    User.find(
-        // { role: req.params.role },
+    await User.find(
+        { role: req.params.role },
         function(err, customers) {
         if (err) {
             return res.status(422).json({
@@ -75,18 +75,17 @@ exports.getAllCustomers = (req, res) => {
                 data: err
             });
         }
-        for (customer in customers) {
+        for (const customer in customers) {
             if (customer.role === UserRole.CUSTOMER) {
-                console.log(customers)
+                console.log('.......', customers)
             }
+            return res.status(200).json({
+                success: true,
+                message: `Received ${req.params.role}!`,
+                data: customer
+            });
         }
 
-
-        return res.status(200).json({
-            success: true,
-            message: `Received ${req.params.role}!`,
-            data: customers
-        });
 
     });
 };

@@ -7,7 +7,9 @@ module.exports = function(app) {
     app.post("/create_service_category", [Auth, SuperAdmin], SuperAdminController.createServiceCategory);
     app.get("/service_categories", [Auth, SuperAdmin], SuperAdminController.getAllServiceCategories);
     // app.get("/create_customer", [Auth, SuperAdmin], SuperAdminController.createCustomer);
-    app.get("/customers", [Auth, SuperAdmin], SuperAdminController.getAllCustomers);
+    app.get("/customers", [Auth, SuperAdmin], SuperAdminController.getAllCustomers); // bug
+
+
 
 
     // app.post("/create_service", [Auth, superAdmin], BeauticianController.createService);
