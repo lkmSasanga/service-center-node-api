@@ -12,7 +12,7 @@ let AppointmentModelSchema = new Schema({
         ref: 'Vehicle',
         required: [true, 'Vehicle field is required!']
     },
-    service_id: {
+    service_category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ServiceCategory',
         required: [true, 'Service field is required!']

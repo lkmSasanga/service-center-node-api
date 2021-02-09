@@ -3,6 +3,7 @@ const { User } = require("../models/UserModel");
 const { Vehicle } = require("../models/VehicleModel");
 const { ServiceRecord } = require("../models/ServiceRecordModel");
 const { Appointment } = require("../models/AppointmentModel");
+const { Payment } = require("../models/PaymentModel");
 
 exports.addVehicle = async (req, res) => {
     let newVehicle = new Vehicle(req.body);
@@ -103,6 +104,27 @@ exports.addAppointment = async (req, res) => {
                 success: true,
                 message: "New Appointment is created!",
                 data: appointment
+            });
+        }
+    });
+};
+
+
+exports.makePayment = async (req, res) => {
+    let newPayment = new Payment(req.body);
+
+    await newPayment.save((err, payment) => {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Unable to create payment!",
+                data: err
+            });
+        } else {
+            return res.status(200).json({
+                success: true,
+                message: "New payment is created!",
+                data: payment
             });
         }
     });

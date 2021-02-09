@@ -12,6 +12,8 @@ module.exports = function(app) {
 
     app.get("/get_service_record/:id", [Auth, Customer], CustomerController.getServiceRecord);
     app.post("/add_appointment", [Auth, Customer], CustomerController.addAppointment);
+    app.post("/make_payment", [Auth, Customer], CustomerController.makePayment);
+
 
 
 };

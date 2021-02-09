@@ -2,13 +2,13 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let PaymentModelSchema = new Schema({
-    appointment_id: {
+    service_record_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Appointment',
         required: [true, 'Service field is required!']
     },
     amount: {
-        type: Number,
+        type: String,
         required: [true, 'Amount field is required!']
     },
     // status: {
