@@ -19,7 +19,7 @@ let AppointmentModelSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['pending', 'accepted', 'payment_done', 'completed'],
+        enum: ['pending', 'approved', 'rejected'],
         default: 'pending'
     },
     created_date: {

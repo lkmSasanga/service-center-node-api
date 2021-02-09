@@ -1,6 +1,8 @@
 // const { Service } = require("../models/ServiceModel");
 // const { ServiceTag } = require("../models/ServiceTagModel");
 const { ServiceRecord } = require("../models/ServiceRecordModel");
+const { Appointment } = require("../models/AppointmentModel");
+const { User } = require("../models/UserModel");
 
 exports.createServiceRecord = async (req, res) => {
     let newServiceRecord = new ServiceRecord(req.body);
@@ -76,6 +78,73 @@ exports.deleteServiceRecord = async (req, res) => {
         return res.status(422).json({
             success: true,
             message: "Service record deleted!"
+        });
+    });
+};
+
+exports.getAppointments = async (req, res) => {
+    await Appointment.find(function(err, appointments) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Unable to retrieve appointments!",
+                data: err
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Received appointments!",
+            data: appointments
+        });
+    });
+};
+
+
+exports.approveAppointment = async (req, res) => {
+    await Appointment.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, appointment) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid service record id!"
+            });
+        }
+
+        if(!appointment) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid appointment id!"
+            });
+        }
+
+        return res.status(422).json({
+            success: true,
+            message: "Appointment updated!",
+            data: appointment
+        });
+    });
+};
+
+exports.getCustomer = async (req, res) => {
+    await User.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, customer) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid customer id!"
+            });
+        }
+
+        if(!customer) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid customer id!"
+            });
+        }
+
+        return res.status(422).json({
+            success: true,
+            message: "Appointment updated!",
+            data: customer
         });
     });
 };

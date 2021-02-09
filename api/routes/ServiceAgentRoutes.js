@@ -9,6 +9,10 @@ module.exports = function(app) {
     app.post("/update_service_record/:id", [Auth, ServiceAgent], ServiceAgentController.updateServiceRecord);
     app.delete("/delete_service_record/:id", [Auth, ServiceAgent], ServiceAgentController.deleteServiceRecord);
 
+    app.get("/get_appointments", [Auth, ServiceAgent], ServiceAgentController.getAppointments);
+    app.post("/approve_appointment/:id", [Auth, ServiceAgent], ServiceAgentController.approveAppointment);
+    app.get("/get_customer/:id", [Auth, ServiceAgent], ServiceAgentController.getCustomer);
+
 
 
     // app.get("/services_tags", [Auth, Beautician], BeauticianController.getAllServiceTags);
