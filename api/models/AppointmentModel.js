@@ -2,10 +2,15 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 let AppointmentModelSchema = new Schema({
-    customer: {
+    customer_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Customer',
         required: [true, 'Customer field is required!']
+    },
+    vehicle_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Vehicle',
+        required: [true, 'Vehicle field is required!']
     },
     service: {
         type: mongoose.Schema.Types.ObjectId,
