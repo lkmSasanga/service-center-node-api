@@ -87,6 +87,24 @@ exports.getCustomer = async (req, res) => {
     });
 };
 
+exports.deleteCustomer = async (req, res) => {
+    await User.remove({_id: req.params.id}, function(err, customer) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid customer record id!"
+            });
+        }
+
+        return res.status(422).json({
+            success: true,
+            message: "Customer record deleted!"
+        });
+    });
+};
+
+
+
 
 
 exports.getAllVehicles = async (req, res) => {

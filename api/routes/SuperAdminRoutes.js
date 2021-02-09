@@ -10,6 +10,7 @@ module.exports = function(app) {
     app.get("/vehicles", [Auth, SuperAdmin], SuperAdminController.getAllVehicles);
 
     app.get("/get_customer/:id", [Auth, SuperAdmin], SuperAdminController.getCustomer);
+    app.delete("/delete_customer/:id", [Auth, SuperAdmin], SuperAdminController.deleteCustomer);
 
 
 
