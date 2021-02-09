@@ -8,10 +8,10 @@ let ServiceCategoryModelSchema = new Schema({
         enum: ['full_service', 'body_wash'],
         required: [true, 'Title field is required!']
     },
-    cost: {
-        type: String,
-        required: [true, 'Cost field is required!']
-    },
+    // cost: {
+    //     type: String,
+    //     required: [true, 'Cost field is required!']
+    // },
     created_date: {
         type: Date,
         default: Date.now

@@ -4,7 +4,7 @@ let Schema = mongoose.Schema;
 let ServiceRecordModelSchema = new Schema({
     service_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Service',
+        ref: 'ServiceCategory',
         required: [true, 'Service field is required!']
     },
     customer_id: {
@@ -20,7 +20,11 @@ let ServiceRecordModelSchema = new Schema({
     service_Category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ServiceCategory',
-        required: [true, 'Vehicle field is required!']
+        required: [true, 'Service category field is required!']
+    },
+    cost: {
+        type: String,
+        required: [true, 'Cost is required']
     },
 
     // status: {
