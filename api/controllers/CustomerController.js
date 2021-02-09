@@ -46,3 +46,19 @@ exports.updateVehicle = async (req, res) => {
         });
     });
 };
+
+exports.deleteVehicle = async (req, res) => {
+    await Vehicle.remove({_id: req.params.id}, function(err, vehicle) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid vehicle id!"
+            });
+        }
+
+        return res.status(422).json({
+            success: true,
+            message: "Vehicle deleted!"
+        });
+    });
+};
