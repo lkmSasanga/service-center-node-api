@@ -32,7 +32,7 @@ let UserSchema = new Schema({
     //     type: mongoose.Schema.Types.ObjectId,
     //     ref: 'Vehicle',
         // required: [true, 'Vehicle field is required!']
-    },
+    // },
     role: {
         type: String,
         enum: UserRole,
