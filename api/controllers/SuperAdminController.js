@@ -3,6 +3,7 @@ const { ServiceCategory } = require("../models/ServiceCategoryModel");
 const { Customer } = require('../models/CustomerModel')
 const { User } = require('../models/UserModel')
 const { UserRole } = require('../models/UserModel')
+const { Vehicle } = require('../models/VehicleModel')
 
 exports.createServiceCategory = async (req, res) => {
     let newServiceCategory = new ServiceCategory(req.body);
@@ -90,6 +91,24 @@ exports.getAllServiceCategories = (req, res) => {
 //     });
 // };
 
+
+exports.getAllVehicles = async (req, res) => {
+    await Vehicle.find(function(err, vehicles) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Unable to retrieve vehicles!",
+                data: err
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Received vehicles!",
+            data: vehicles
+        });
+    });
+};
 
 
 

@@ -9,6 +9,8 @@ module.exports = function(app) {
 
     // app.get("/customers", [Auth, SuperAdmin], SuperAdminController.getAllCustomers); // bug
 
+    app.get("/vehicles", [Auth, SuperAdmin], SuperAdminController.getAllVehicles);
+
 
 
 
