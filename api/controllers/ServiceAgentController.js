@@ -3,6 +3,7 @@
 const { ServiceRecord } = require("../models/ServiceRecordModel");
 const { Appointment } = require("../models/AppointmentModel");
 const { User } = require("../models/UserModel");
+const { Vehicle } = require("../models/VehicleModel");
 
 exports.createServiceRecord = async (req, res) => {
     let newServiceRecord = new ServiceRecord(req.body);
@@ -126,7 +127,7 @@ exports.approveAppointment = async (req, res) => {
 };
 
 exports.getCustomer = async (req, res) => {
-    await User.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, customer) {
+    await User.findById(req.params.id, async function(err, customer) {
         if (err) {
             return res.status(422).json({
                 success: false,
@@ -143,8 +144,32 @@ exports.getCustomer = async (req, res) => {
 
         return res.status(422).json({
             success: true,
-            message: "Appointment updated!",
+            message: "customer record received!",
             data: customer
+        });
+    });
+};
+
+exports.getVehicle = async (req, res) => {
+    await Vehicle.findById(req.params.id, async function(err, vehicle) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid vehicle id!"
+            });
+        }
+
+        if(!vehicle) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid vehicle id!"
+            });
+        }
+
+        return res.status(422).json({
+            success: true,
+            message: "vehicle record received!",
+            data: vehicle
         });
     });
 };
