@@ -13,6 +13,7 @@ module.exports = function(app) {
     app.post("/approve_appointment/:id", [Auth, ServiceAgent], ServiceAgentController.approveAppointment);
     app.get("/get_customer/:id", [Auth, ServiceAgent], ServiceAgentController.getCustomer);
     app.get("/get_vehicle/:id", [Auth, ServiceAgent], ServiceAgentController.getVehicle);
+    app.get("/get_service_record/:id", [Auth, ServiceAgent], ServiceAgentController.getServiceRecords);
 
 
 
