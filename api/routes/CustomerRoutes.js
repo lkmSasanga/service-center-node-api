@@ -11,5 +11,7 @@ module.exports = function(app) {
     app.delete("/delete_vehicle/:id", [Auth, Customer], CustomerController.deleteVehicle);
 
     app.get("/get_service_record/:id", [Auth, Customer], CustomerController.getServiceRecord);
+    app.post("/add_appointment", [Auth, Customer], CustomerController.addAppointment);
+
 
 };

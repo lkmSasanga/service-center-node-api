@@ -12,15 +12,15 @@ let AppointmentModelSchema = new Schema({
         ref: 'Vehicle',
         required: [true, 'Vehicle field is required!']
     },
-    service: {
+    service_id: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Service',
+        ref: 'ServiceCategory',
         required: [true, 'Service field is required!']
     },
     status: {
         type: String,
         enum: ['pending', 'accepted', 'payment_done', 'completed'],
-        required: [true, 'Status field is required!']
+        default: 'pending'
     },
     created_date: {
         type: Date,

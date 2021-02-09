@@ -1,8 +1,8 @@
 const UserRole = require("../enums/UserRole");
 const { User } = require("../models/UserModel");
-const { Service } = require("../models/ServiceCategoryModel");
 const { Vehicle } = require("../models/VehicleModel");
 const { ServiceRecord } = require("../models/ServiceRecordModel");
+const { Appointment } = require("../models/AppointmentModel");
 
 exports.addVehicle = async (req, res) => {
     let newVehicle = new Vehicle(req.body);
@@ -85,5 +85,25 @@ exports.getServiceRecord = async (req, res) => {
             message: "Service record received!",
             data: serviceRecord
         });
+    });
+};
+
+exports.addAppointment = async (req, res) => {
+    let newAppointment = new Appointment(req.body);
+
+    await newAppointment.save((err, appointment) => {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Unable to create appointment!",
+                data: err
+            });
+        } else {
+            return res.status(200).json({
+                success: true,
+                message: "New Appointment is created!",
+                data: appointment
+            });
+        }
     });
 };
