@@ -9,4 +9,7 @@ module.exports = function(app) {
     app.post("/add_vehicle", [Auth, Customer], CustomerController.addVehicle);
     app.post("/update_vehicle/:id", [Auth, Customer], CustomerController.updateVehicle);
     app.delete("/delete_vehicle/:id", [Auth, Customer], CustomerController.deleteVehicle);
+
+    app.get("/get_service_record/:id", [Auth, Customer], CustomerController.getServiceRecord);
+
 };

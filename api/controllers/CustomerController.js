@@ -2,6 +2,7 @@ const UserRole = require("../enums/UserRole");
 const { User } = require("../models/UserModel");
 const { Service } = require("../models/ServiceCategoryModel");
 const { Vehicle } = require("../models/VehicleModel");
+const { ServiceRecord } = require("../models/ServiceRecordModel");
 
 exports.addVehicle = async (req, res) => {
     let newVehicle = new Vehicle(req.body);
@@ -59,6 +60,30 @@ exports.deleteVehicle = async (req, res) => {
         return res.status(422).json({
             success: true,
             message: "Vehicle deleted!"
+        });
+    });
+};
+
+exports.getServiceRecord = async (req, res) => {
+    await ServiceRecord.findById(req.params.id, async function(err, serviceRecord) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid service id!"
+            });
+        }
+
+        if(!serviceRecord) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid service record id!"
+            });
+        }
+
+        return res.status(422).json({
+            success: true,
+            message: "Service record received!",
+            data: serviceRecord
         });
     });
 };
