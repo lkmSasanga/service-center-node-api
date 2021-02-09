@@ -173,7 +173,25 @@ exports.deleteServiceRecord = async (req, res) => {
 };
 
 
+exports.createServiceAgent = async (req, res) => {
+    let newServiceAgent = new User(req.body);
 
+    await newServiceAgent.save((err, serviceAgent) => {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Unable to create service agent!",
+                data: err
+            });
+        } else {
+            return res.status(200).json({
+                success: true,
+                message: "New service agent is created!",
+                data: serviceAgent
+            });
+        }
+    });
+};
 
 
 

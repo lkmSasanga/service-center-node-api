@@ -17,6 +17,7 @@ module.exports = function(app) {
     app.get("/get_service_records", [Auth, SuperAdmin], SuperAdminController.getServiceRecords);
     app.delete("/delete_service_record/:id", [Auth, SuperAdmin], SuperAdminController.deleteServiceRecord);
 
+    app.post("/create_service_agent", [Auth, SuperAdmin], SuperAdminController.createServiceAgent);
 
 
 };
