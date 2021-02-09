@@ -22,3 +22,27 @@ exports.addVehicle = async (req, res) => {
         }
     });
 };
+
+exports.updateVehicle = async (req, res) => {
+    await Vehicle.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, function(err, vehicle) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid vehicle id!"
+            });
+        }
+
+        if(!vehicle) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid vehicle id!"
+            });
+        }
+
+        return res.status(422).json({
+            success: true,
+            message: "Vehicle updated!",
+            data: vehicle
+        });
+    });
+};

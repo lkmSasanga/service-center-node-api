@@ -7,4 +7,5 @@ module.exports = function(app) {
     // app.get("/serviceagent/:id", [Auth, Customer], CustomerController.viewServiceAgentById);
 
     app.post("/add_vehicle", [Auth, Customer], CustomerController.addVehicle);
+    app.post("/update_vehicle/:id", [Auth, Customer], CustomerController.updateVehicle);
 };
