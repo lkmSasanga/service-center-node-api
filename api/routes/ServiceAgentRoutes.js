@@ -4,8 +4,10 @@ module.exports = function(app) {
 
     const ServiceAgentController = require("../controllers/ServiceAgentController")
 
-    app.get("/view_service_record", [Auth, ServiceAgent], ServiceAgentController.viewServiceRecords);
+    app.get("/get_service_records", [Auth, ServiceAgent], ServiceAgentController.getServiceRecords);
     app.post("/create_service_record", [Auth, ServiceAgent], ServiceAgentController.createServiceRecord);
+    app.post("/update_service_record/:id", [Auth, ServiceAgent], ServiceAgentController.updateServiceRecord);
+    app.delete("/delete_service_record/:id", [Auth, ServiceAgent], ServiceAgentController.deleteServiceRecord);
 
 
 
