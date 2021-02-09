@@ -173,27 +173,3 @@ exports.getVehicle = async (req, res) => {
         });
     });
 };
-
-exports.getVehicleRecord = async (req, res) => {
-    await Vehicle.findById(req.params.id, async function(err, vehicle) {
-        if (err) {
-            return res.status(422).json({
-                success: false,
-                message: "Invalid vehicle id!"
-            });
-        }
-
-        if(!vehicle) {
-            return res.status(422).json({
-                success: false,
-                message: "Invalid vehicle id!"
-            });
-        }
-
-        return res.status(422).json({
-            success: true,
-            message: "vehicle record received!",
-            data: vehicle
-        });
-    });
-};

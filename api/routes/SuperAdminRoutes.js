@@ -7,11 +7,12 @@ module.exports = function(app) {
     app.post("/create_service_category", [Auth, SuperAdmin], SuperAdminController.createServiceCategory);
     app.get("/service_categories", [Auth, SuperAdmin], SuperAdminController.getAllServiceCategories);
 
-    app.get("/vehicles", [Auth, SuperAdmin], SuperAdminController.getAllVehicles);
 
     app.get("/get_customer/:id", [Auth, SuperAdmin], SuperAdminController.getCustomer);
     app.delete("/delete_customer/:id", [Auth, SuperAdmin], SuperAdminController.deleteCustomer);
 
+    app.get("/get_vehicles", [Auth, SuperAdmin], SuperAdminController.getVehicles);
+    app.delete("/delete_vehicle/:id", [Auth, SuperAdmin], SuperAdminController.deleteVehicle);
 
 
 

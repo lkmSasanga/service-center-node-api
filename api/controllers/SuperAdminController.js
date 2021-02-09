@@ -103,11 +103,7 @@ exports.deleteCustomer = async (req, res) => {
     });
 };
 
-
-
-
-
-exports.getAllVehicles = async (req, res) => {
+exports.getVehicles = async (req, res) => {
     await Vehicle.find(function(err, vehicles) {
         if (err) {
             return res.status(422).json({
@@ -125,7 +121,21 @@ exports.getAllVehicles = async (req, res) => {
     });
 };
 
+exports.deleteVehicle = async (req, res) => {
+    await Vehicle.remove({_id: req.params.id}, function(err, vehicle) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid vehicle id!"
+            });
+        }
 
+        return res.status(422).json({
+            success: true,
+            message: "Vehicle deleted!"
+        });
+    });
+};
 
 
 
