@@ -4,11 +4,15 @@ const VehicleType = require('../enums/VehicleType');
 
 
 let VehicleModelSchema = new Schema({
-    type: {
+    model: {
         type: String,
-        enum: VehicleType,
-        default: VehicleType.CAR
+        required: true
     },
+    // type: {
+    //     type: String,
+    //     enum: VehicleType,
+    //     default: VehicleType.CAR
+    // },
     created_date: {
         type: Date,
         default: Date.now
