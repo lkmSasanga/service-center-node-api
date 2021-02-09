@@ -14,12 +14,9 @@ module.exports = function(app) {
     app.get("/get_vehicles", [Auth, SuperAdmin], SuperAdminController.getVehicles);
     app.delete("/delete_vehicle/:id", [Auth, SuperAdmin], SuperAdminController.deleteVehicle);
 
+    app.get("/get_service_records", [Auth, SuperAdmin], SuperAdminController.getServiceRecords);
+    app.delete("/delete_service_record/:id", [Auth, SuperAdmin], SuperAdminController.deleteServiceRecord);
 
 
 
-    // app.post("/create_service", [Auth, superAdmin], BeauticianController.createService);
-    // app.get("/services", [Auth, superAdmin], BeauticianController.getAllServices);
-    // app.get("/service/:id", [Auth], BeauticianController.getServiceById);
-    // app.put("/update_service/:id", [Auth, superAdmin], BeauticianController.updateService);
-    // app.delete("/delete_service/:id", [Auth, superAdmin], BeauticianController.deleteService);
 };

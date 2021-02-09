@@ -4,6 +4,7 @@ const { Customer } = require('../models/CustomerModel')
 const { User } = require('../models/UserModel')
 const { UserRole } = require('../models/UserModel')
 const { Vehicle } = require('../models/VehicleModel')
+const { ServiceRecord } = require('../models/ServiceRecordModel')
 
 exports.createServiceCategory = async (req, res) => {
     let newServiceCategory = new ServiceCategory(req.body);
@@ -137,10 +138,39 @@ exports.deleteVehicle = async (req, res) => {
     });
 };
 
+exports.getServiceRecords = async (req, res) => {
+    await ServiceRecord.find(function(err, serviceRecords) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Unable to retrieve service records!",
+                data: err
+            });
+        }
 
+        return res.status(200).json({
+            success: true,
+            message: "Received service records!",
+            data: serviceRecords
+        });
+    });
+};
 
+exports.deleteServiceRecord = async (req, res) => {
+    await ServiceRecord.remove({_id: req.params.id}, function(err, vehicle) {
+        if (err) {
+            return res.status(422).json({
+                success: false,
+                message: "Invalid service record id!"
+            });
+        }
 
-
+        return res.status(422).json({
+            success: true,
+            message: "Service record deleted!"
+        });
+    });
+};
 
 
 
