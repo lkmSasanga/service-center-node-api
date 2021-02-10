@@ -4,10 +4,6 @@ module.exports = function(app) {
 
     const CustomerController = require("../controllers/CustomerController");
 
-    // app.get("/serviceagent/:id", [Auth, Customer], CustomerController.viewServiceAgentById);
-
-    // app.post("/customer_register", [Auth, Customer], CustomerController.register);
-
     app.post("/add_vehicle", [Auth, Customer], CustomerController.addVehicle);
     app.post("/update_vehicle/:id", [Auth, Customer], CustomerController.updateVehicle);
     app.delete("/delete_vehicle/:id", [Auth, Customer], CustomerController.deleteVehicle);

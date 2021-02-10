@@ -11,11 +11,11 @@ let PaymentModelSchema = new Schema({
         type: String,
         required: [true, 'Amount field is required!']
     },
-    // status: {
-    //     type: String,
-    //     enum: ['pending', 'processed', 'completed', 'failed'],
-    //     required: [true, 'Status field is required!']
-    // },
+    status: {
+        type: String,
+        enum: ['completed', 'pending'],
+        default: 'pending'
+    },
     created_date: {
         type: Date,
         default: Date.now

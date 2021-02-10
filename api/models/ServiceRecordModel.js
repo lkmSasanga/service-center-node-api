@@ -26,12 +26,6 @@ let ServiceRecordModelSchema = new Schema({
         type: String,
         required: [true, 'Cost is required']
     },
-
-    // status: {
-    //     type: String,
-    //     enum: ['pending', 'payment_done', 'completed'],
-    //     required: [true, 'Status field is required!']
-    // },
     created_date: {
         type: Date,
         default: Date.now

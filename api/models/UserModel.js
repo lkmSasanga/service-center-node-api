@@ -28,11 +28,6 @@ let UserSchema = new Schema({
         minlength: 5,
         required: [true, 'Password field is required!']
     },
-    // vehicle: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Vehicle',
-        // required: [true, 'Vehicle field is required!']
-    // },
     role: {
         type: String,
         enum: UserRole,

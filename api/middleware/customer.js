@@ -18,7 +18,6 @@ const Customer = (req, res, next) => {
                     message: "No authorization to access this route!"
                 });
             }
-
             next();
         });
     }

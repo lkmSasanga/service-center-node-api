@@ -7,21 +7,6 @@ let SuperAdminModelSchema = new Schema({
         ref: 'User',
         required: [true, 'User field is required!']
     },
-    // customer: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Customer',
-    //     required: [true, 'Customer field is required!']
-    // },
-    // service_agent: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'ServiceAgent',
-    //     required: [true, 'Service Agent field is required!']
-    // },
-    // service_record: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'ServiceRecord',
-    //     required: [true, 'Service Record field is required!']
-    // },
     created_date: {
         type: Date,
         default: Date.now

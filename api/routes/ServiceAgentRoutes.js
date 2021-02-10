@@ -15,12 +15,4 @@ module.exports = function(app) {
     app.get("/get_vehicle/:id", [Auth, ServiceAgent], ServiceAgentController.getVehicle);
     app.get("/get_service_record/:id", [Auth, ServiceAgent], ServiceAgentController.getServiceRecords);
 
-
-
-    // app.get("/services_tags", [Auth, Beautician], BeauticianController.getAllServiceTags);
-    // app.post("/create_service", [Auth, Beautician], BeauticianController.createService);
-    // app.get("/services", [Auth, Beautician], BeauticianController.getAllServices);
-    // app.get("/service/:id", [Auth], BeauticianController.getServiceById);
-    // app.put("/update_service/:id", [Auth, Beautician], BeauticianController.updateService);
-    // app.delete("/delete_service/:id", [Auth, Beautician], BeauticianController.deleteService);
 };
