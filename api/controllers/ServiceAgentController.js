@@ -1,5 +1,5 @@
-// const { Service } = require("../models/ServiceModel");
-// const { ServiceTag } = require("../models/ServiceTagModel");
+const moment = require('moment')
+
 const { ServiceRecord } = require("../models/ServiceRecordModel");
 const { Appointment } = require("../models/AppointmentModel");
 const { User } = require("../models/UserModel");
@@ -126,6 +126,44 @@ exports.approveAppointment = async (req, res) => {
     });
 };
 
+
+exports.getTodayAppointments = async (req, res) => {
+    await Appointment.find()
+        .then(appointments => {
+        appointments.forEach(function(err, appointment) {
+            // if (err) {
+            //     return res.status(422).json({
+            //         success: false,
+            //         message: "Unable to retrieve appointments!",
+            //         data: err
+            //     });
+            // }
+            const today = moment()
+            console.log('Today date ...',today.day())
+
+            console.log(appointment.created_date.getDate())
+            const todayDate = today.day()
+
+            if(appointment.created_date.toISOString() === todayDate){
+                return res.status(200).json({
+                    success: true,
+                    message: "Received today appointments!",
+                    data: appointment
+                });
+            }
+            // else {
+            //     return res.status(422).json({
+            //         success: false,
+            //         message: "Not recieved today appointments!",
+            //         data: err
+            //     });
+            // }
+    })
+    }).catch(err => {
+        res.send(err.message)
+    })
+};
+
 exports.getCustomer = async (req, res) => {
     await User.findById(req.params.id, async function(err, customer) {
         if (err) {
@@ -142,7 +180,7 @@ exports.getCustomer = async (req, res) => {
             });
         }
 
-        return res.status(422).json({
+        return res.status(200).json({
             success: true,
             message: "customer record received!",
             data: customer
@@ -166,7 +204,7 @@ exports.getVehicle = async (req, res) => {
             });
         }
 
-        return res.status(422).json({
+        return res.status(200).json({
             success: true,
             message: "vehicle record received!",
             data: vehicle
