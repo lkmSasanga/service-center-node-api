@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/d9824a90-6ad8-401b-a903-fa0e702ed28e/resourceGroups/nodeservicecenterapi1/providers/Microsoft.Web/sites/nodeservicecenterapi1",
+    "appService.deploySubpath": "."
+}
