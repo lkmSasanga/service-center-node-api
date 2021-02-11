@@ -2,7 +2,7 @@ let express = require('express');
 let router = express.Router();
 
 router.get('/', function(req, res) {
-    res.send("Welcome to API!");
+    res.send("Welcome to service center API!");
 });
 
 require('./AuthRoutes')(router);
