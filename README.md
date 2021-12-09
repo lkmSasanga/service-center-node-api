@@ -14,5 +14,5 @@
 - MongoDB
 <br>
 <br>
-#### Deployed on https://nodejs-service-center-api.herokuapp.com/api
+Deployed on https://nodejs-service-center-api.herokuapp.com/api
 
